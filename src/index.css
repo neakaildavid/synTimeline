@@ -1,0 +1,89 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Default (light/day) values — JS overrides these on scroll */
+:root {
+  --bg-page:         rgb(228, 240, 255);
+  --navbar-bg:       rgba(228, 240, 255, 0.86);
+  --text-primary:    rgb(16, 26, 48);
+  --text-secondary:  rgb(60, 78, 112);
+  --text-muted:      rgb(130, 150, 188);
+  --card-bg:         rgba(255, 253, 249, 0.94);
+  --card-shadow:     0 1px 4px rgba(0,0,0,0.048), 0 6px 24px rgba(0,0,0,0.033);
+  --spine-color:     rgba(120, 165, 218, 0.50);
+
+  /* Accent colors — light-background variants */
+  --science:         #2858a0;
+  --science-soft:    rgba(40, 88, 160, 0.10);
+  --science-border:  rgba(40, 88, 160, 0.22);
+
+  --policy:          #b34a1e;
+  --policy-soft:     rgba(179, 74, 30, 0.10);
+  --policy-border:   rgba(179, 74, 30, 0.22);
+
+  --culture:         #2b6248;
+  --culture-soft:    rgba(43, 98, 72, 0.10);
+  --culture-border:  rgba(43, 98, 72, 0.22);
+
+  --font-display:    'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:       'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --ease-smooth:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark-background accent variants */
+.theme-dark {
+  --science:         #8ec4f2;
+  --science-soft:    rgba(142, 196, 242, 0.10);
+  --science-border:  rgba(142, 196, 242, 0.20);
+
+  --policy:          #f0a068;
+  --policy-soft:     rgba(240, 160, 104, 0.10);
+  --policy-border:   rgba(240, 160, 104, 0.20);
+
+  --culture:         #78c898;
+  --culture-soft:    rgba(120, 200, 152, 0.10);
+  --culture-border:  rgba(120, 200, 152, 0.20);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.08s linear;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.3); border-radius: 2px; }
+
+::selection {
+  background: rgba(40, 88, 160, 0.18);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
